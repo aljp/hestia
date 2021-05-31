@@ -1,21 +1,33 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { createContext } from 'react';
+import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import * as eva from '@eva-design/eva';
+import { ApplicationProvider} from '@ui-kitten/components';
 import LandingPage from './src/screens/LandingPage';
+import LandlordRegister from './src/screens/LandlordRegister';
 import LoginPage from './src/screens/LoginPage';
+import PageIndex from './src/screens/PageIndex';
+
+export const GlobalContext = createContext({});
 
 const { Navigator, Screen } = createStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Navigator>
-        <Screen name="LandingPage" component={LandingPage} />
-        <Screen name="LoginPage" component={LoginPage} />
-      </Navigator>
-    </NavigationContainer>
+    <ApplicationProvider {...eva} theme={eva.light}>
+      <GlobalContext.Provider value={{}}>
+        <NavigationContainer>
+          <Navigator>
+            <Screen name="PageIndex" component={PageIndex} />
+            <Screen name="LandlordRegister" component={LandlordRegister} />
+            <Screen name="LandingPage" component={LandingPage} />
+            <Screen name="LoginPage" component={LoginPage} />
+          </Navigator>
+        </NavigationContainer>
+      </GlobalContext.Provider>
+    </ApplicationProvider>
   );
 }
 
