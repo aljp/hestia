@@ -1,6 +1,7 @@
 import React, { useReducer } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Input, Button } from '@ui-kitten/components';
+import { Action } from '../reducer'
 
 type StateType = {
   name?: string,
@@ -11,11 +12,6 @@ type StateType = {
 
 type Props = {
   navigation: Object,
-}
-
-type Action = {
-  type: string,
-  payload: string 
 }
 
 const reducer = (state: StateType, action: Action): StateType => {
