@@ -11,6 +11,8 @@ import LoginPage from './src/screens/LoginPage';
 import PageIndex from './src/screens/PageIndex';
 import { RootStackParamList } from './src/navigator';
 import ContractorDashboard from './src/screens/ContractorDashboard';
+import UpcomingJobList from './src/screens/UpcomingJobList';
+import UpcomingJobDetail from './src/screens/UpcomingJobDetail';
 
 export const GlobalContext = createContext({});
 
@@ -27,6 +29,8 @@ export default function App() {
             <Screen name="LandingPage" component={LandingPage} />
             <Screen name="LoginPage" component={LoginPage} />
             <Screen name="ContractorDashboard" component={ContractorDashboard} />
+            <Screen name="UpcomingJobList" component={UpcomingJobList} />
+            <Screen name="UpcomingJobDetail" component={UpcomingJobDetail} />
           </Navigator>
         </NavigationContainer>
       </GlobalContext.Provider>

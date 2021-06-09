@@ -44,7 +44,7 @@ const LandlordRegister: React.FC<Props> = ({ navigation }) => {
     password: ''
   }
   
-  const [state, dispatch] = useReducer(reducer, initialState)
+  const [state, dispatch] = useReducer(reducer, initialState);
   const { name, phoneNumber, email, password } = state;
 
   const handleOnPress = (): void => {
