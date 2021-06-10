@@ -13,6 +13,8 @@ import { RootStackParamList } from './src/navigator';
 import ContractorDashboard from './src/screens/ContractorDashboard';
 import UpcomingJobList from './src/screens/UpcomingJobList';
 import UpcomingJobDetail from './src/screens/UpcomingJobDetail';
+import ContractorProfile from './src/screens/ContractorProfile';
+
 
 export const GlobalContext = createContext({});
 
@@ -31,6 +33,7 @@ export default function App() {
             <Screen name="ContractorDashboard" component={ContractorDashboard} />
             <Screen name="UpcomingJobList" component={UpcomingJobList} />
             <Screen name="UpcomingJobDetail" component={UpcomingJobDetail} />
+            <Screen name="ContractorProfile" component={ContractorProfile} />
           </Navigator>
         </NavigationContainer>
       </GlobalContext.Provider>

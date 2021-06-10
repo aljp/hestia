@@ -16,7 +16,7 @@ const PageIndex: React.FC<Props> = ({ navigation }) => {
   }
 
   return (
-    ['LandingPage', 'LoginPage', 'LandlordRegister', 'ContractorDashboard'].map((page) => (
+    ['LandingPage', 'LoginPage', 'LandlordRegister', 'ContractorDashboard', 'ContractorProfile'].map((page) => (
       <Button title={page} onPress={handleOnPress(page)} key={page}></Button>  
     ))
   )

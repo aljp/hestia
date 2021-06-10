@@ -2,6 +2,7 @@ import React, { useReducer } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Input, Button } from '@ui-kitten/components';
 import { Action } from '../reducer'
+import { ImagePickerResponse } from 'react-native-image-picker';
 
 type StateType = {
   name?: string,
@@ -50,7 +51,6 @@ const LandlordRegister: React.FC<Props> = ({ navigation }) => {
   const handleOnPress = (): void => {
     navigation.navigate('PageIndex')
   };
-
   
   return (
     <View style={styles.container}>

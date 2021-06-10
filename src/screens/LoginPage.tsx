@@ -9,7 +9,6 @@ const LoginPage = ({ navigation }) => (
         title="Go to landing page"
         onPress={() => navigation.navigate('LandingPage')}
       >
-        
       </Button>
     </Text>
   </View>
