@@ -1,13 +1,22 @@
 import React from 'react'
 import { Button } from 'react-native'
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../navigator';
 
-export const PageIndex = ({ navigation }) => {
+// type ProfileScreenNavigationProp = StackNavigationProp<
+//   RootStackParamList,
+//   'PageIndex'
+// >;
+
+type Props = { navigation : any };
+
+const PageIndex: React.FC<Props> = ({ navigation }) => {
   const handleOnPress = (page: string) => () => {
     navigation.navigate(page)
   }
 
   return (
-    ['LandingPage', 'LoginPage', 'LandlordRegister', 'ContractorProfile'].map((page) => (
+    ['LandingPage', 'LoginPage', 'LandlordRegister', 'ContractorDashboard', 'ContractorProfile'].map((page) => (
       <Button title={page} onPress={handleOnPress(page)} key={page}></Button>  
     ))
   )

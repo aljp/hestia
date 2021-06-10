@@ -1,6 +1,7 @@
 import React, { useReducer } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Input, Button } from '@ui-kitten/components';
+import { Action } from '../reducer'
 import { ImagePickerResponse } from 'react-native-image-picker';
 
 type StateType = {
@@ -12,11 +13,6 @@ type StateType = {
 
 type Props = {
   navigation: Object,
-}
-
-type Action = {
-  type: string,
-  payload: string 
 }
 
 const reducer = (state: StateType, action: Action): StateType => {
@@ -49,7 +45,7 @@ const LandlordRegister: React.FC<Props> = ({ navigation }) => {
     password: ''
   }
   
-  const [state, dispatch] = useReducer(reducer, initialState)
+  const [state, dispatch] = useReducer(reducer, initialState);
   const { name, phoneNumber, email, password } = state;
 
   const handleOnPress = (): void => {
