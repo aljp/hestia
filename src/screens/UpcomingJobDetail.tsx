@@ -45,13 +45,12 @@ const reducer = (state: Job, action: Action): Job => {
   
   switch (type) {
     case 'title':
-      if (/^[0-9]*$/.test(payload)) return { ...state, [type]: payload };
+      if (/^[\w\W]*$/.test(payload)) return { ...state, [type]: payload };
       return state;
     case 'when':
-      if (/^[0-9z]*$/.test(payload)) return { ...state, [type]: payload };
       return state;
     case 'where':
-      if (/^[0-9]*$/.test(payload)) return { ...state, [type]: payload };
+      if (/^\w*$/.test(payload)) return { ...state, [type]: payload };
       return state;
     default:
       return { ...state, [type]: payload };
@@ -63,7 +62,7 @@ const UpcomingJobDetail: React.FC<Props> = ({ navigation, edit=true, upcomingJob
     <Text>Comments</Text>
   );
   let initialState: Job = {
-    id: 0,
+    id: undefined,
     title: '',
     when: new Date(),
     where: '',
