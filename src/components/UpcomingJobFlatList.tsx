@@ -31,7 +31,7 @@ const UpcomingJobFlatList = (props: Props) => {
       >
         <View style={listItemStyle}>
           <Text>{o.item.title}</Text>
-          <Text>WHEN: {o.item.when}</Text>
+          <Text>WHEN: {o.item.when.toDateString()}</Text>
           <Text>WHERE: {o.item.where}</Text>
         </View>
       </TouchableOpacity>

@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import { Input, Button, Text, List, Divider } from "@ui-kitten/components";
 import UpcomingJobFlatList from "../components/UpcomingJobFlatList";
+import { Job } from "../models/Job";
 
 type Props = {
   navigation: any;
@@ -43,43 +44,36 @@ const styles = StyleSheet.create({
   },
 });
 
-type IUpcomingJob = {
-  id: string;
-  title: string;
-  when: string;
-  where: string;
-};
-
 const UpcomingJobList: React.FC<Props> = ({ navigation }) => {
-  const upcomingJobsData: IUpcomingJob[] = [
+  const upcomingJobsData: Job[] = [
     {
-      id: "1",
+      id: 1,
       title: "Blocked Toilet",
-      when: "Wednesday 29th Feb at 9am",
+      when: new Date(),
       where: "123 Fake Street",
     },
     {
-      id: "2",
+      id: 2,
       title: "Blocked Toilet",
-      when: "Wednesday 29th Feb at 9am",
+      when: new Date(),
       where: "123 Fake Street",
     },
     {
-      id: "3",
+      id: 3,
       title: "Blocked Toilet",
-      when: "Wednesday 29th Feb at 9am",
+      when: new Date(),
       where: "123 Fake Street",
     },
     {
-      id: "4",
+      id: 4,
       title: "Blocked Toilet",
-      when: "Wednesday 29th Feb at 9am",
+      when: new Date(),
       where: "123 Fake Street",
     },
     {
-      id: "5",
+      id: 5,
       title: "Blocked Toilet",
-      when: "Wednesday 29th Feb at 9am",
+      when: new Date(),
       where: "123 Fake Street",
     },
   ];

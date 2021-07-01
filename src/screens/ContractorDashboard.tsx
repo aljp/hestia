@@ -1,7 +1,9 @@
 import React, { useReducer } from "react";
 import { StyleSheet, View, FlatList, ListRenderItem } from "react-native";
-import { Input, Button, Text, List, Divider } from "@ui-kitten/components";
+import { Input, Button, Text, List, Divider, Layout } from "@ui-kitten/components";
 import UpcomingJobFlatList from "../components/UpcomingJobFlatList";
+import { Job } from "../models/Job";
+import { QuoteRequest } from "../models/QuoteRequest";
 
 type Props = {
   navigation: any;
@@ -37,17 +39,6 @@ const styles = StyleSheet.create({
   },
 });
 
-type IUpcomingJob = {
-  id: string;
-  title: string;
-  when: string;
-  where: string;
-};
-
-type IQuoteRequest = {
-  id: string;
-  title: string;
-};
 
 const ContractorDashboard: React.FC<Props> = ({ navigation }) => {
   const renderUpcomingJobItem = (o: any) => {
@@ -70,49 +61,57 @@ const ContractorDashboard: React.FC<Props> = ({ navigation }) => {
       listItemStyle = { ...listItemStyle, ...styles.lastListItem };
     }
     return (
-      <View style={listItemStyle}>
-        <Text>{o.item.title}</Text>
-        <View
-          style={{
-            marginBottom: 4,
-            flex: 1,
-            flexDirection: "row",
-            justifyContent: "space-evenly",
-          }}
-        >
-          <Button style={{ width: "40%" }}>Reply</Button>
-          <Button style={{ width: "40%" }}>Ignore</Button>
+      <Layout>
+        <View style={listItemStyle}>
+          <Text>{o.item.title}</Text>
+          <View
+            style={{
+              marginBottom: 4,
+              flex: 1,
+              flexDirection: "row",
+              justifyContent: "space-evenly",
+            }}
+          >
+            <Button style={{ width: "40%" }}>Reply</Button>
+            <Button style={{ width: "40%" }}>Ignore</Button>
+          </View>
         </View>
-      </View>
+      </Layout>
     );
   };
 
-  const upcomingJobsData: IUpcomingJob[] = [
+  const upcomingJobsData: Job[] = [
     {
-      id: "1",
+      id: 1,
       title: "Blocked Toilet",
-      when: "Wednesday 29th Feb at 9am",
+      when: new Date(),
       where: "123 Fake Street",
     },
     {
-      id: "2",
+      id: 2,
       title: "Blocked Toilet",
-      when: "Wednesday 29th Feb at 9am",
+      when: new Date(),
       where: "123 Fake Street",
     },
     {
-      id: "3",
+      id: 3,
       title: "Blocked Toilet",
-      when: "Wednesday 29th Feb at 9am",
+      when: new Date(),
       where: "123 Fake Street",
     },
   ];
-  const quoteRequestsData: IQuoteRequest[] = [
+  const quoteRequestsData: QuoteRequest[] = [
     {
-      id: "1",
+      id: 1,
       title: "Blocked Toilet",
     },
   ];
+  const quoteRequestKeyExtractor = (quoteRequest: QuoteRequest) : string => {
+    if (quoteRequest.id === undefined) {
+      return "";
+    }
+    return quoteRequest.id.toString();
+  }
 
   return (
     <View style={styles.container}>
@@ -140,7 +139,7 @@ const ContractorDashboard: React.FC<Props> = ({ navigation }) => {
         <FlatList
           data={quoteRequestsData}
           renderItem={renderQuoteRequestItem}
-          keyExtractor={(item) => item.id}
+          keyExtractor={quoteRequestKeyExtractor}
         />
       </View>
     </View>
@@ -148,3 +147,4 @@ const ContractorDashboard: React.FC<Props> = ({ navigation }) => {
 };
 
 export default ContractorDashboard;
+

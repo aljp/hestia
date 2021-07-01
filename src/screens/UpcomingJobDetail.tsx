@@ -2,6 +2,7 @@ import React, { useReducer } from "react";
 import { StyleSheet, TextInput, View } from "react-native";
 import { Datepicker, Input, Text } from "@ui-kitten/components";
 import { Action } from "../reducer";
+import { Job } from "../models/Job";
 
 type Props = {
   navigation: any;
@@ -39,15 +40,7 @@ const styles = StyleSheet.create({
   },
 });
 
-type StateType = {
-  id?: string,
-  title?: string,
-  when?: Date,
-  where?: string,
-  comments?: string[],
-}
-
-const reducer = (state: StateType, action: Action): StateType => {
+const reducer = (state: Job, action: Action): Job => {
   const { type, payload } = action;
   
   switch (type) {
@@ -65,18 +58,11 @@ const reducer = (state: StateType, action: Action): StateType => {
   }
 }
 
-type IUpcomingJob = {
-  id: string;
-  title: string;
-  when: string;
-  where: string;
-};
-
 const UpcomingJobDetail: React.FC<Props> = ({ navigation, edit=true, upcomingJobId }) => {
   const commentsSection = () => (
     <Text>Comments</Text>
   );
-  let initialState: StateType = {
+  let initialState: Job = {
     title: '',
     when: new Date(),
     where: '',
@@ -95,7 +81,7 @@ const UpcomingJobDetail: React.FC<Props> = ({ navigation, edit=true, upcomingJob
     }
   }
 
-  const [state, dispatch]:[StateType, any] = useReducer(reducer, initialState);
+  const [state, dispatch]:[Job, any] = useReducer(reducer, initialState);
   const job = state;
   return (
     <View style={styles.container}>
@@ -106,7 +92,7 @@ const UpcomingJobDetail: React.FC<Props> = ({ navigation, edit=true, upcomingJob
         </View>
         <View>
         
-        <Input placeholder="Title" value={state.title} onChangeText={(text) => dispatch({ type: 'title', payload: text })}/>
+        <Input placeholder="Title" label="Title" value={state.title} onChangeText={(text) => dispatch({ type: 'title', payload: text })}/>
         <Datepicker date={job.when} onSelect={nextDate => dispatch({ type: 'when', payload: nextDate})}/>
         <Input placeholder="Where" value={state.where} onChangeText={(text) => dispatch({ type: 'where', payload: text })}/>
         { state.id && state.comments && commentsSection() }
