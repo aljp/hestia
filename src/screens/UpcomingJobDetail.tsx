@@ -63,6 +63,7 @@ const UpcomingJobDetail: React.FC<Props> = ({ navigation, edit=true, upcomingJob
     <Text>Comments</Text>
   );
   let initialState: Job = {
+    id: 0,
     title: '',
     when: new Date(),
     where: '',
@@ -71,6 +72,7 @@ const UpcomingJobDetail: React.FC<Props> = ({ navigation, edit=true, upcomingJob
 
   if (upcomingJobId !== undefined) {
     initialState = {
+      id: 1,
       title: 'Example Job Title',
       when: new Date(),
       where: '',
