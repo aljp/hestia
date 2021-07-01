@@ -7,7 +7,11 @@ import {
   View,
   Text,
   TouchableOpacity,
+  FlatListProps,
+  ListRenderItem,
+  ListRenderItemInfo,
 } from "react-native";
+import { Job } from "../models/Job";
 
 type Props = {
   upcomingJobsData: any[];
@@ -18,9 +22,9 @@ type Props = {
 };
 
 const UpcomingJobFlatList = (props: Props) => {
-  const renderUpcomingJobItem = (o: any) => {
+  const renderUpcomingJobItem = (item: ListRenderItemInfo<Job>) => {
     let listItemStyle = props.listItemStyle;
-    if (o.index == props.upcomingJobsData.length - 1) {
+    if (item.index == props.upcomingJobsData.length - 1) {
       listItemStyle = { ...listItemStyle, ...props.lastListItemStyle };
     }
     return (
@@ -30,9 +34,9 @@ const UpcomingJobFlatList = (props: Props) => {
         }}
       >
         <View style={listItemStyle}>
-          <Text>{o.item.title}</Text>
-          <Text>WHEN: {o.item.when}</Text>
-          <Text>WHERE: {o.item.where}</Text>
+          <Text>{item.item.title}</Text>
+          <Text>WHEN: {item.item.when.toDateString()}</Text>
+          <Text>WHERE: {item.item.where}</Text>
         </View>
       </TouchableOpacity>
     );
@@ -51,7 +55,7 @@ const UpcomingJobFlatList = (props: Props) => {
     <FlatList
       data={upcomingJobsData}
       renderItem={renderUpcomingJobItem}
-      keyExtractor={(item) => item.id}
+      keyExtractor={(item) => item.id.toString()}
     />
   );
 };

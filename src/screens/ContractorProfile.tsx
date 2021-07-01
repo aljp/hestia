@@ -4,27 +4,18 @@ import { Input, Button, Text as KittenText } from '@ui-kitten/components';
 import { ImagePickerResponse } from 'react-native-image-picker';
 import ImageUploader from '../components/ImageUploader';
 import MapSelector from '../components/MapSelector';
+import { Contractor } from '../models/Contractor';
 
 type Props = {
   navigation: any
 }
 
-type StateType = {
-  profileImage?: ImagePickerResponse | undefined,
-  name?: string,
-  profession?: string,
-  description?: string,
-  serviceRange?: string,
-  latitude?: number | null,
-  longitude?: number | null
-}
-
 type Action = {
   type: string,
-  payload: StateType
+  payload: Contractor
 }
 
-const reducer = (state: StateType, action: Action) => {
+const reducer = (state: Contractor, action: Action) => {
   const { type, payload } = action;
 
   switch (type) {
@@ -63,7 +54,7 @@ const styles = StyleSheet.create({
 })
 
 const ContractorProfile: React.FC<Props> = ({ navigation }) => {
-  const initialState: StateType = {
+  const initialState: Contractor = {
     profileImage: undefined,
     name: '',
     profession: '',
