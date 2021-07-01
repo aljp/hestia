@@ -7,7 +7,7 @@ export const PageIndex = ({ navigation }) => {
   }
 
   return (
-    ['LandingPage', 'LoginPage', 'LandlordRegister', 'ContractorProfile'].map((page) => (
+    ['LandingPage', 'LoginPage', 'LandlordRegister', 'ContractorProfile', 'NearbyJobs'].map((page) => (
       <Button title={page} onPress={handleOnPress(page)} key={page}></Button>  
     ))
   )

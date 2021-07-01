@@ -10,6 +10,7 @@ import LandlordRegister from './src/screens/LandlordRegister';
 import LoginPage from './src/screens/LoginPage';
 import PageIndex from './src/screens/PageIndex';
 import ContractorProfile from './src/screens/ContractorProfile';
+import NearbyJobs from './src/screens/NearbyJobs';
 
 export const GlobalContext = createContext({});
 
@@ -26,6 +27,7 @@ export default function App() {
             <Screen name="LandingPage" component={LandingPage} />
             <Screen name="LoginPage" component={LoginPage} />
             <Screen name="ContractorProfile" component={ContractorProfile} />
+            <Screen name="NearbyJobs" component={NearbyJobs} />
           </Navigator>
         </NavigationContainer>
       </GlobalContext.Provider>
