@@ -1,12 +1,12 @@
 import { ImagePickerResponse } from "react-native-image-picker"
 
-export class Contractor {
-  id?: number;
+export type Contractor = {
+  id: number | undefined;
   profileImage?: ImagePickerResponse | undefined;
-  name?: string;
-  profession?: string;
-  description?: string;
-  serviceRange?: string;
-  latitude?: number | null;
-  longitude?: number | null;
+  name: string;
+  profession: string;
+  description: string;
+  serviceRange: string;
+  latitude: number | null;
+  longitude: number | null;
 }

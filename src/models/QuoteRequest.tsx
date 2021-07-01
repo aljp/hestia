@@ -1,4 +1,4 @@
-export class QuoteRequest {
-  id?: number;
-  title?: string;
+export type QuoteRequest = {
+  id: number | undefined;
+  title: string;
 }

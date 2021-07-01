@@ -1,7 +1,7 @@
 export type Job = {
-  id: number;
-  title?: string;
+  id: number | undefined;
+  title: string;
   when: Date;
-  where?: string;
-  comments?: string[];
+  where: string;
+  comments: string[];
 }
