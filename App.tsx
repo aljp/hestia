@@ -9,12 +9,17 @@ import LandingPage from './src/screens/LandingPage';
 import LandlordRegister from './src/screens/LandlordRegister';
 import LoginPage from './src/screens/LoginPage';
 import PageIndex from './src/screens/PageIndex';
+import { RootStackParamList } from './src/navigator';
+import ContractorDashboard from './src/screens/ContractorDashboard';
+import UpcomingJobList from './src/screens/UpcomingJobList';
+import UpcomingJobDetail from './src/screens/UpcomingJobDetail';
 import ContractorProfile from './src/screens/ContractorProfile';
 import NearbyJobs from './src/screens/NearbyJobs';
 
+
 export const GlobalContext = createContext({});
 
-const { Navigator, Screen } = createStackNavigator();
+const { Navigator, Screen } = createStackNavigator<RootStackParamList>();
 
 export default function App() {
   return (
@@ -26,6 +31,9 @@ export default function App() {
             <Screen name="LandlordRegister" component={LandlordRegister} />
             <Screen name="LandingPage" component={LandingPage} />
             <Screen name="LoginPage" component={LoginPage} />
+            <Screen name="ContractorDashboard" component={ContractorDashboard} />
+            <Screen name="UpcomingJobList" component={UpcomingJobList} />
+            <Screen name="UpcomingJobDetail" component={UpcomingJobDetail} />
             <Screen name="ContractorProfile" component={ContractorProfile} />
             <Screen name="NearbyJobs" component={NearbyJobs} />
           </Navigator>

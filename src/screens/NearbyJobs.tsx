@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
-import jobs from '../fixtures/jobs'
-import JobPanel from '../components/NearbyJobs/JobPanel'
+import jobs from '../fixtures/jobs';
+import JobPanel from '../components/NearbyJobs/JobPanel';
+import { Job } from '../models/Job';
 
 type Props = {
   navigation: any
@@ -26,10 +27,11 @@ const styles = StyleSheet.create({
 const NearbyJobs: React.FC<Props> = ({
   navigation
 }) => {
-  const [selectedJob, setSelectedJob] = useState(jobs[0])
+  const [selectedJob, setSelectedJob] : [Job, any] = useState(jobs[0])
 
-  const handleMarkerSelect = (id) => {
-    setSelectedJob(jobs.find((job) => job.id === id))
+  const handleMarkerSelect = (id: number | undefined) => {
+    const newJob = jobs.find((job) => job.id === id)
+    setSelectedJob(newJob)
   }
 
   return (
