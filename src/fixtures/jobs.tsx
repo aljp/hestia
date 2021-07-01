@@ -33,4 +33,4 @@ const jobs: Job[] = [
   },
 ];
 
-export default jobs;
+export default jobs

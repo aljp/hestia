@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
 
 const ContractorProfile: React.FC<Props> = ({ navigation }) => {
   const initialState: Contractor = {
+    id: undefined,
     profileImage: undefined,
     name: '',
     profession: '',
