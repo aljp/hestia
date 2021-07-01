@@ -1,7 +1,7 @@
-export class Job {
-  id?: number;
+export type Job = {
+  id: number;
   title?: string;
-  when?: Date;
+  when: Date;
   where?: string;
   comments?: string[];
 }
