@@ -1,9 +1,10 @@
 import React, { useReducer } from "react";
-import { StyleSheet, View, FlatList, ListRenderItem } from "react-native";
+import { StyleSheet, View, FlatList, ListRenderItem, ListRenderItemInfo } from "react-native";
 import { Input, Button, Text, List, Divider, Layout } from "@ui-kitten/components";
 import UpcomingJobFlatList from "../components/UpcomingJobFlatList";
 import { Job } from "../models/Job";
 import { QuoteRequest } from "../models/QuoteRequest";
+import jobs from "../fixtures/jobs";
 
 type Props = {
   navigation: any;
@@ -55,15 +56,15 @@ const ContractorDashboard: React.FC<Props> = ({ navigation }) => {
     );
   };
 
-  const renderQuoteRequestItem = (o: any) => {
+  const renderQuoteRequestItem = (item: ListRenderItemInfo<QuoteRequest>) => {
     let listItemStyle = styles.listItem;
-    if (o.index == quoteRequestsData.length - 1) {
+    if (item.index == quoteRequestsData.length - 1) {
       listItemStyle = { ...listItemStyle, ...styles.lastListItem };
     }
     return (
       <Layout>
         <View style={listItemStyle}>
-          <Text>{o.item.title}</Text>
+          <Text>{item.item.title}</Text>
           <View
             style={{
               marginBottom: 4,
@@ -80,26 +81,7 @@ const ContractorDashboard: React.FC<Props> = ({ navigation }) => {
     );
   };
 
-  const upcomingJobsData: Job[] = [
-    {
-      id: 1,
-      title: "Blocked Toilet",
-      when: new Date(),
-      where: "123 Fake Street",
-    },
-    {
-      id: 2,
-      title: "Blocked Toilet",
-      when: new Date(),
-      where: "123 Fake Street",
-    },
-    {
-      id: 3,
-      title: "Blocked Toilet",
-      when: new Date(),
-      where: "123 Fake Street",
-    },
-  ];
+  const upcomingJobsData = jobs;
   const quoteRequestsData: QuoteRequest[] = [
     {
       id: 1,
