@@ -14,6 +14,7 @@ import ContractorDashboard from './src/screens/ContractorDashboard';
 import UpcomingJobList from './src/screens/UpcomingJobList';
 import UpcomingJobDetail from './src/screens/UpcomingJobDetail';
 import ContractorProfile from './src/screens/ContractorProfile';
+import NearbyJobs from './src/screens/NearbyJobs';
 
 
 export const GlobalContext = createContext({});
@@ -34,6 +35,7 @@ export default function App() {
             <Screen name="UpcomingJobList" component={UpcomingJobList} />
             <Screen name="UpcomingJobDetail" component={UpcomingJobDetail} />
             <Screen name="ContractorProfile" component={ContractorProfile} />
+            <Screen name="NearbyJobs" component={NearbyJobs} />
           </Navigator>
         </NavigationContainer>
       </GlobalContext.Provider>
