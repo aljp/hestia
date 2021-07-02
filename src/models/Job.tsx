@@ -6,5 +6,6 @@ export type Job = {
   when: Date;
   where: string;
   comments: string[];
-  location: LatLng
+  location: LatLng,
+  address: string
 }

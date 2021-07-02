@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { Button } from '@ui-kitten/components';
 import PlaceHolderImage from '../../../assets/image-placeholder.jpg';
-import { Job } from "../models/Job";
+import { Job } from "../../models/Job";
 
 
 const styles = StyleSheet.create({
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
 })
 
 const JobPanel = ({ job } : { job: Job }) => {
-  const { location, title, address } = job;
+  const { title, address } = job;
 
   return (
     <View style={styles.jobPanel}>
@@ -56,7 +56,6 @@ const JobPanel = ({ job } : { job: Job }) => {
         </View>
         <View >
           <Button style={styles.buttonWrapper}>Details</Button>
-          
         </View>
       </View>
     </View>

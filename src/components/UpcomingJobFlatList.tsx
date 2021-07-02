@@ -44,10 +44,7 @@ const UpcomingJobFlatList = (props: Props) => {
 
   let upcomingJobsData;
   if (props.limit != undefined) {
-    upcomingJobsData = props.upcomingJobsData.slice(
-      0,
-      Math.min(props.upcomingJobsData.length, props.limit)
-    );
+    upcomingJobsData = props.upcomingJobsData.slice(0, Math.min(props.upcomingJobsData.length, props.limit));
   } else {
     upcomingJobsData = props.upcomingJobsData;
   }
