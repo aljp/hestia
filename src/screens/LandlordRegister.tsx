@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Input, Button } from '@ui-kitten/components';
-import { Action } from '../reducer'
+import { Action } from '../models/App'
 import { ImagePickerResponse } from 'react-native-image-picker';
 
 type StateType = {
