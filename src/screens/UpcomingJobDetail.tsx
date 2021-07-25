@@ -1,7 +1,7 @@
 import React, { useReducer } from "react";
 import { StyleSheet, TextInput, View } from "react-native";
 import { Datepicker, Input, Text } from "@ui-kitten/components";
-import { Action } from "../reducer";
+import { Action } from "../models/App";
 import { Job } from "../models/Job";
 
 type Props = {
